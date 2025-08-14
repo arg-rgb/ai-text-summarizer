@@ -201,13 +201,3 @@ Artificial intelligence (AI) is intelligence demonstrated by machines, in contra
 ---
 
 **⭐ If you found this project helpful, please give it a star!**
-
-## 📞 Support
-
-If you have any questions or need help, please:
-- Open an issue on GitHub
-- Check the troubleshooting section
-- Review the Hugging Face documentation
-
----
-Made with ❤️ using Flask and Hugging Face Transformers
