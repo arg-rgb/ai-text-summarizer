@@ -139,33 +139,7 @@ This application uses Hugging Face's default summarization pipeline, which typic
 python app.py
 ```
 
-### Production Deployment
-
-1. **Using Gunicorn** (recommended for production)
-   ```bash
-   pip install gunicorn
-   gunicorn -w 4 -b 0.0.0.0:8000 app:app
-   ```
-
-2. **Using Docker**
-   ```dockerfile
-   FROM python:3.9-slim
-   WORKDIR /app
-   COPY . .
-   RUN pip install flask transformers torch
-   EXPOSE 5000
-   CMD ["python", "app.py"]
-   ```
-
-3. **Environment Variables**
-   ```bash
-   export FLASK_ENV=production
-   export FLASK_DEBUG=False
-   ```
-
 ## 📦 Dependencies
-
-Create a `requirements.txt` file with:
 
 ```txt
 Flask==2.3.3
@@ -173,22 +147,7 @@ transformers==4.33.2
 torch==2.0.1
 ```
 
-Install with:
-```bash
-pip install -r requirements.txt
-```
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-## 📝 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🐛 Troubleshooting
 
