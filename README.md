@@ -61,9 +61,7 @@ ai-text-summarizer/
 ├── app.py                 # Flask backend application
 ├── templates/
 │   └── index.html        # Frontend HTML template
-├── requirements.txt      # Python dependencies
 ├── README.md            # Project documentation
-└── .gitignore          # Git ignore file
 ```
 
 ## 🔧 Usage
