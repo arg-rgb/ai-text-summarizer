@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Text Summarizer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+        textarea {
+            width: 80%;
+            height: 150px;
+            padding: 10px;
+            margin: 20px 0;
+            resize: none;
+            font-size: 16px;
+        }
+        button {
+            background: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        #summary-box {
+            background: white;
+            margin: 20px auto;
+            padding: 15px;
+            width: 80%;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            min-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🧠 AI Text Summarizer</h1>
+    <textarea id="inputText" placeholder="Paste your text here..."></textarea><br>
+    <button onclick="summarize()">Summarize</button>
+
+    <h2>Summary:</h2>
+    <div id="summary-box">Your summary will appear here...</div>
+
+    <script>
+        async function summarize() {
+            const text = document.getElementById("inputText").value;
+            const summaryBox = document.getElementById("summary-box");
+
+            if (!text.trim()) {
+                summaryBox.innerText = "⚠ Please enter some text!";
+                return;
+            }
+
+            summaryBox.innerText = "⏳ Summarizing...";
+            try {
+                const response = await fetch("/summarize", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ text })
+                });
+
+                const data = await response.json();
+                if (data.summary) {
+                    summaryBox.innerText = data.summary;
+                } else {
+                    summaryBox.innerText = "❌ Error: " + (data.error || "Unknown error");
+                }
+            } catch (error) {
+                summaryBox.innerText = "❌ Network Error: " + error;
+            }
+        }
+    </script>
+</body>
+</html>
