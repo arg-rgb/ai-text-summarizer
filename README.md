@@ -75,7 +75,7 @@ ai-text-summarizer/
 
 ### Summary Parameters
 
-You can customize the summarization behavior by modifying parameters in `app.py`:
+Now you can customize the summarization behavior by modifying parameters in `app.py`:
 
 ```python
 summary = summarizer(text, 
